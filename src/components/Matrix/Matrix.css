@@ -1,0 +1,25 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100%;
+  width: 100%;
+  max-width: inherit;
+  gap: 4px;
+  background-color: #787878;
+}
+
+.square {
+  justify-items: center;
+  justify-content: center;
+  aspect-ratio: 1/ 1;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.square img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
