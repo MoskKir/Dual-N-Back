@@ -100,6 +100,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 If you have any questions or suggestions, feel free to reach out to the project maintainer:
 
-- **Your Name**
 - Email: mosk9364@gmail.com
 - GitHub: [MoskKir](https://github.com/MoskKir)
