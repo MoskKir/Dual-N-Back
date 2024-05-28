@@ -36,7 +36,7 @@ function toggleFullScreen() {
 
 import {
   useKey,
-} from '../../hooks/useKey';
+} from 'hooks';
 
 import {
   setTrialsCount,

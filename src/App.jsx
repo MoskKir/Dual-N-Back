@@ -11,6 +11,7 @@ import {
   RouteLayout,
 } from './hooks';
 
+import { withScreen } from './hocs/screen';
 import { withStore } from './hocs/store';
 
 import routes from './routes';
@@ -40,4 +41,4 @@ function App() {
   )
 }
 
-export default withStore(App);
+export default withScreen(withStore(App));
