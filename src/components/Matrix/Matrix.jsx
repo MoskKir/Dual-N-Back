@@ -41,20 +41,6 @@ export const MatrixComponent = ({
   const [isSucceseTrial, setIsSucceseTrial] = useState(null);
   const [pressedKey, setPressedKey] = useState(null);
 
-  const updateDimensions = () => {
-    if (containerRef.current) {
-      const { width, height } = containerRef.current.getBoundingClientRect();
-      setDimensions({ width, height });
-    }
-  };
-
-  useEffect(() => {
-    updateDimensions();
-    window.addEventListener('resize', updateDimensions);
-    return () => {
-      window.removeEventListener('resize', updateDimensions);
-    };
-  }, []);
 
   const handleKeyDown = (keyCode) => {
     setPressedKey(keyCode);
@@ -117,7 +103,7 @@ export const MatrixComponent = ({
   return (
     <Grid
       sx={{
-        width: isMobile ? "100%" : dimensions.height,
+        ...(isMobile && { width: 'inherit' }),
         height: '70vh',
         paddingTop: '5rem',
       }}
@@ -162,7 +148,7 @@ export const MatrixComponent = ({
         </div>
       </Grid>
 
-      <Grid container justifyContent="space-between">
+      <Grid container justifyContent="space-between" style={{ paddingTop: '3em' }}>
         <Grid>
           <Button
             variant={ pressedKey ? "contained" : "outlined"}

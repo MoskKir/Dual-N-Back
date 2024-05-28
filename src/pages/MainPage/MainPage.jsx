@@ -91,7 +91,7 @@ export const MainPage = () => {
           </Grid>
         )}
 
-        <Grid container justifyContent={'center'}>
+        <Grid container justifyContent={'center'} style={{ width: isMobile ? '100%' : 'auto' }} >
           <Matrix
             isRunning={isRunning}
             arrayOfPositions={arrayOfPositions}
