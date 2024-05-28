@@ -21,11 +21,13 @@ import {
 } from 'services/main';
 
 import {
+  useScreen,
   useKey,
-} from '../../hooks/useKey';
+} from 'hooks';
 
 export const MainPage = () => {
   const dispatch = useDispatch();
+  const { isMobile } = useScreen();
 
   const isRunning = useSelector(({ app }) => app.isRunning);
   const trialsCount = useSelector(({ app }) => app.trialsCount);
@@ -57,34 +59,37 @@ export const MainPage = () => {
         padding: '16px',
       }}
         container
+        direction={ isMobile ? 'column' : 'row' }
       >
-        <Grid container item spacing={3} direction={'column'} xs={4} justifyContent="space-between">
-          {!isRunning ? (
-            <>
-              <Grid item>
-                <Menu />
-              </Grid>
-              <Grid item>
-                <Session
-                  trialsCount={trialsCount}
-                  trialTime={trialTime}
-                />
-              </Grid>
-            </>
-          ) : (
-            <Grid item>
-              <Grid container spacing={3} direction={'column'}>
+        { !isMobile && (
+          <Grid container item spacing={3} direction={'column'} xs={4} justifyContent="space-between">
+            {!isRunning ? (
+              <>
                 <Grid item>
-                  <Button variant="text" color="inherit"
-                    onClick={() => dispatch(finishSession())}
-                  >
-                    ~ : Stop
-                  </Button>
+                  <Menu />
+                </Grid>
+                <Grid item>
+                  <Session
+                    trialsCount={trialsCount}
+                    trialTime={trialTime}
+                  />
+                </Grid>
+              </>
+            ) : (
+              <Grid item>
+                <Grid container spacing={3} direction={'column'}>
+                  <Grid item>
+                    <Button variant="text" color="inherit"
+                      onClick={() => dispatch(finishSession())}
+                    >
+                      ~ : Stop
+                    </Button>
+                  </Grid>
                 </Grid>
               </Grid>
-            </Grid>
-          )}
-        </Grid>
+            )}
+          </Grid>
+        )}
 
         <Grid container justifyContent={'center'}>
           <Matrix

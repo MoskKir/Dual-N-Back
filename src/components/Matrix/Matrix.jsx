@@ -15,8 +15,9 @@ import {
 } from '@mui/material';
 
 import {
+  useScreen,
   useKey,
-} from '../../hooks/useKey';
+} from 'hooks';
 
 export const MatrixComponent = ({
   isRunning,
@@ -25,6 +26,7 @@ export const MatrixComponent = ({
   trialTime
 }) => {
   const dispatch = useDispatch();
+  const { isMobile } = useScreen();
 
   const containerRef = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -114,8 +116,8 @@ export const MatrixComponent = ({
 
   return (
     <Grid
-      style={{
-        width: dimensions.height,
+      sx={{
+        width: isMobile ? "100%" : dimensions.height,
         height: '70vh',
         paddingTop: '5rem',
       }}
@@ -126,7 +128,7 @@ export const MatrixComponent = ({
           aspectRatio: 1/ 1,
           display: 'flex',
           justifyContent: 'center',
-          ...(dimensions.width < dimensions.height ? { width: '100%' } : { height: '100%' }),
+          ...(isMobile ? { width: '100%' } : { height: '100%' }),
         }}
       >
         <div className="grid">
