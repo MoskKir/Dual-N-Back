@@ -19,7 +19,7 @@ export const InfoPage = () => {
   return (
     <>
       <Helmet>
-        <title>Main Page</title>
+        <title>Dual N-Back | Info</title>
       </Helmet>
 
       <Grid style={{

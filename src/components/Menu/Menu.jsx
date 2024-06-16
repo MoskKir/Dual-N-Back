@@ -53,6 +53,12 @@ export const Menu = ({  }) => {
 
   const handleKeyDown = (keyCode) => {
     setPressedKey(keyCode);
+
+    const id = setTimeout(() => {
+      setPressedKey(null);
+    }, 300);
+
+    return () => clearInterval(id);
   };
 
   const handleGoToInfoPage = () => {
@@ -104,7 +110,7 @@ export const Menu = ({  }) => {
   }, []);
 
   return (
-    <Grid container spacing={2} direction={'column'}>
+    <Grid container spacing={2} direction={'column'} style={{ whiteSpace: 'nowrap' }}>
       <Grid item>
         <Button
           variant={ pressedKey === "KeyH" ? "contained" : "text" }

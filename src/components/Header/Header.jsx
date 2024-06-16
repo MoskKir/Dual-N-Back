@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Typography,
   IconButton,
@@ -8,31 +8,34 @@ import {
   AppBar,
   Box,
 } from '@mui/material';
+import { useHistory } from 'react-router-dom';
 
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { useScreen } from 'hooks';
 
 export const Header = () => {
+  const history = useHistory();
   const { isMobile } = useScreen();
+  const [isLogin, setIsLogin] = useState(history.location.pathname === '/login');
 
   return (
-    <AppBar position="static"
+    <AppBar position='static'
       color='transparent'
     >
-      <Container maxWidth="none">
+      <Container maxWidth='none'>
         <Toolbar disableGutters
           sx={{
-            justifyContent: "space-between",
+            justifyContent: 'space-between',
           }}
         >
 
           { isMobile && (
             <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
+              size='large'
+              edge='start'
+              color='inherit'
+              aria-label='menu'
               sx={{ mr: 2 }}
             >
               <MenuIcon />
@@ -40,10 +43,10 @@ export const Header = () => {
           )}
 
           <Typography
-            variant="h5"
+            variant='h5'
             noWrap
-            component="a"
-            href="/"
+            component='a'
+            href='/'
             sx={{
               mr: 2,
               display: { md: 'flex' },
@@ -59,10 +62,10 @@ export const Header = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {false && (
               <Typography
-                variant="body1"
+                variant='body1'
                 noWrap
-                component="a"
-                href="/info"
+                component='a'
+                href='/info'
                 sx={{
                   mr: 2,
                   display: { xs: 'none', md: 'flex' },
@@ -79,11 +82,11 @@ export const Header = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Button
-              variant="text"
-              color="inherit"
-              href="/login"
+              variant='text'
+              color='inherit'
+              href={isLogin ? '/signup' : '/login'}
             >
-              Login
+              {isLogin ? 'Sign Up' : 'Login' }
             </Button>
           </Box>
         </Toolbar>

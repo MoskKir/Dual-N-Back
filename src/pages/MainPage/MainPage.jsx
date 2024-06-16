@@ -49,7 +49,7 @@ export const MainPage = () => {
   return (
     <>
       <Helmet>
-        <title>Main Page</title>
+        <title>Dual N-Back</title>
       </Helmet>
 
       <Grid style={{
@@ -62,7 +62,7 @@ export const MainPage = () => {
         direction={ isMobile ? 'column' : 'row' }
       >
         { !isMobile && (
-          <Grid container item spacing={3} direction={'column'} xs={4} justifyContent="space-between">
+          <Grid container item spacing={3} direction={'column'} xs={4} justifyContent='space-between'>
             {!isRunning ? (
               <>
                 <Grid item>
@@ -79,7 +79,7 @@ export const MainPage = () => {
               <Grid item>
                 <Grid container spacing={3} direction={'column'}>
                   <Grid item>
-                    <Button variant="text" color="inherit"
+                    <Button variant='text' color='inherit'
                       onClick={() => dispatch(finishSession())}
                     >
                       ~ : Stop
@@ -91,7 +91,14 @@ export const MainPage = () => {
           </Grid>
         )}
 
-        <Grid container justifyContent={'center'} style={{ width: isMobile ? '100%' : 'auto' }} >
+        <Grid
+          container
+          justifyContent={'center'}
+          style={{
+            width: isMobile ? '100%' : 'auto',
+            marginTop: '48px',
+          }}
+        >
           <Matrix
             isRunning={isRunning}
             arrayOfPositions={arrayOfPositions}
@@ -99,18 +106,20 @@ export const MainPage = () => {
             trialTime={trialTime}
           />
           {!isRunning && (
-            <Grid container justifyContent="center"
+            <Grid container justifyContent='center'
               style={{
+                position: 'fixed',
+                bottom: '16px',
                 height: '48px',
               }}
             >
               <Button
-                variant="outlined"
+                variant='outlined'
                 color='inherit'
                 onClick={handleStartKey}
               >
-                <Typography variant="h6">
-                  Press SPACE to begin session #3: Dual 2-Back
+                <Typography variant={ isMobile ? 'body2' : 'h6'}>
+                  Press { !isMobile && 'SPACE' } to begin session #3: Dual 2-Back
                 </Typography>
               </Button>
             </Grid>
