@@ -10,7 +10,7 @@ const Component = ({ children }) => {
   return (
     <>
       <Helmet>
-        <title>Main app</title>
+        <title>Dual N-Back</title>
       </Helmet>
 
       <div

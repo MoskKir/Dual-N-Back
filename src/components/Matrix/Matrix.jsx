@@ -105,7 +105,6 @@ export const MatrixComponent = ({
       sx={{
         ...(isMobile && { width: 'inherit' }),
         height: '70vh',
-        paddingTop: '5rem',
       }}
     >
       <Grid
@@ -117,57 +116,57 @@ export const MatrixComponent = ({
           ...(isMobile ? { width: '100%' } : { height: '100%' }),
         }}
       >
-        <div className="grid">
-          <div className="square">
+        <div className='grid'>
+          <div className='square'>
             {currentValue === 1 && <CurrentBox key={indexOfCurrentValue}/>}
           </div>
-          <div className="square">
+          <div className='square'>
             {currentValue === 2 && <CurrentBox key={indexOfCurrentValue}/>}
           </div>
-          <div className="square">
+          <div className='square'>
             {currentValue === 3 && <CurrentBox key={indexOfCurrentValue}/>}
           </div>
-          <div className="square">
+          <div className='square'>
             {currentValue === 4 && <CurrentBox key={indexOfCurrentValue}/>}
           </div>
-          <div className="square">
+          <div className='square'>
             {currentValue === 5 && <CurrentBox key={indexOfCurrentValue}/>}
           </div>
-          <div className="square">
+          <div className='square'>
             {currentValue === 6 && <CurrentBox key={indexOfCurrentValue}/>}
           </div>
-          <div className="square">
+          <div className='square'>
             {currentValue === 7 && <CurrentBox key={indexOfCurrentValue}/>}
           </div>
-          <div className="square">
+          <div className='square'>
             {currentValue === 8 && <CurrentBox key={indexOfCurrentValue}/>}
           </div>
-          <div className="square">
+          <div className='square'>
             {currentValue === 9 && <CurrentBox key={indexOfCurrentValue}/>}
           </div>
         </div>
       </Grid>
-
-      <Grid container justifyContent="space-between" style={{ paddingTop: '3em' }}>
+      <Grid style={{ height: isMobile ? '36px' : '36px' }}></Grid>
+      <Grid container justifyContent='space-between'>
         <Grid>
           <Button
-            variant={ pressedKey ? "contained" : "outlined"}
-            color={ isSucceseTrial && pressedKey === "KeyA" ? "success"
-              : !isSucceseTrial && pressedKey === "KeyA" ? "error" : "inherit"
+            variant={ pressedKey ? 'contained' : 'outlined'}
+            color={ isSucceseTrial && pressedKey === 'KeyA' ? 'success'
+              : !isSucceseTrial && pressedKey === 'KeyA' ? 'error' : 'inherit'
             }
             onClick={handleKeyA}
           >
-            <Typography variant="h6">A : Position</Typography>
+            <Typography variant='h6'>A : Position</Typography>
           </Button>
         </Grid>
         <Grid>
           <Button
-            variant="outlined"
+            variant='outlined'
             color='inherit'
             onClick={() => {}}
             disabled
           >
-            <Typography variant="h6">L : Audio</Typography>
+            <Typography variant='h6'>L : Audio</Typography>
           </Button>
         </Grid>
       </Grid>
