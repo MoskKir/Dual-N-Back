@@ -49,7 +49,7 @@ export const MainPage = () => {
   return (
     <>
       <Helmet>
-        <title>Dual N-Back</title>
+        <title>Buba T_T</title>
       </Helmet>
 
       <Grid style={{
